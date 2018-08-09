@@ -19,7 +19,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
   },
 });
 
@@ -30,6 +30,7 @@ const leftButtonConfig = {
 
 const titleConfig = {
   title: 'Barkboard',
+  fontSize: 20,
 };
 
 const rightButtonConfig = {

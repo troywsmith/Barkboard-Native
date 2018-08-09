@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Header from './components/Header';
+import Leaders from './components/Leaders';
 import Feed from './components/Feed';
 
 export default class App extends React.Component {
@@ -9,6 +10,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Header />
+        <Leaders />
         <Feed />
       </View>
     );

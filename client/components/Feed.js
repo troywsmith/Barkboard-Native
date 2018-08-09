@@ -12,12 +12,12 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-      return fetch('http://localhost:4567/.json')
+      return fetch('https://api.coinmarketcap.com/v2/listings/')
           .then ( (response) => response.json() )
           .then( (responseJson) => {
               this.setState({
                   isLoading: false,
-                  dataSource: responseJson.movies,
+                  dataSource: responseJson.data,
               })
           })
       .catch((error) => {
@@ -34,19 +34,14 @@ export default class App extends React.Component {
             style={styles.dogpic}
             source={{uri: 'https://images.pexels.com/photos/248307/pexels-photo-248307.jpeg?auto=compress&cs=tinysrgb&h=350'}}
           />
-          <Text style={styles.othertext}>5234 Likes</Text>
-          <Text style={styles.othertext}>Rocky</Text>
-          <Button
-              onPress={null}
-              title="👍"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
+          <Text style={styles.othertext}>rocky</Text>
+          <Text style={styles.othertext}>5234 likes</Text>
+          <Text> LOADING </Text>
         </ScrollView>
         
       )
     } else {
-      let movies = this.state.dataSource.dogs.map((val, key) => {
+      let movies = this.state.dataSource.map((val, key) => {
           return (
 
           <View key={key} style={styles.item}>
@@ -55,14 +50,8 @@ export default class App extends React.Component {
               source={{uri: 'https://images.pexels.com/photos/248307/pexels-photo-248307.jpeg?auto=compress&cs=tinysrgb&h=350'}}
             />
             <Text>{val.name}</Text>
-            <Text style={styles.othertext}>5234 Likes</Text>
-            <Text style={styles.othertext}>Rocky</Text>
-            <Button
-              onPress={onPressLearnMore}
-              title="Learn More"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
+            <Text style={styles.othertext}>5234 likes</Text>
+            <Text style={styles.othertext}>👍</Text>
           </View>
 
           )
@@ -92,4 +81,4 @@ const styles = StyleSheet.create({
     width: 375,
     height: 300,
   }
-});
+})
